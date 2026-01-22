@@ -6,750 +6,7 @@
     <title>Sihle Leta - Information Systems Student</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.section {
-    padding: 80px 0;
-}
-
-.section-alt {
-    background-color: #f8f9fa;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-p {
-    margin-bottom: 1rem;
-    color: #666;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #3498db, #2980b9);
-    border-radius: 2px;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-}
-
-.nav-logo h1 {
-    color: #2c3e50;
-    font-size: 1.5rem;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #666;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: #3498db;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #3498db;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="1000" height="1000" fill="url(%23grain)"/></svg>');
-    opacity: 0.1;
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.highlight {
-    color: #ffd700;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-}
-
-.hero-description {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.btn {
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    border: 2px solid transparent;
-}
-
-.btn-primary {
-    background: #ffd700;
-    color: #333;
-    border-color: #ffd700;
-}
-
-.btn-primary:hover {
-    background: transparent;
-    color: #ffd700;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border-color: white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: #667eea;
-    transform: translateY(-2px);
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-placeholder {
-    width: 250px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    border: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-.profile-placeholder i {
-    font-size: 8rem;
-    opacity: 0.8;
-}
-
-/* About Section */
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.detail-item:hover {
-    transform: translateY(-5px);
-}
-
-.detail-item i {
-    font-size: 2rem;
-    color: #3498db;
-}
-
-.detail-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.detail-item p {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* Experience Section */
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.experience-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.experience-header h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.company {
-    color: #3498db;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.period {
-    color: #666;
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
-.experience-description {
-    margin: 1rem 0;
-    color: #555;
-    line-height: 1.6;
-}
-
-.experience-highlights {
-    list-style: none;
-    padding: 0;
-}
-
-.experience-highlights li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: #666;
-}
-
-.experience-highlights li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #27ae60;
-    font-weight: bold;
-}
-
-/* Skills Section */
-.skills-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-.skills-category h3 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: #2c3e50;
-}
-
-.skills-grid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.skill-item {
-    margin-bottom: 1rem;
-}
-
-.skill-name {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #333;
-}
-
-.skill-bar {
-    width: 100%;
-    height: 8px;
-    background: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #3498db, #2980b9);
-    border-radius: 4px;
-    transition: width 0.3s ease;
-}
-
-.soft-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-
-.soft-skill-tag {
-    background: #3498db;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.languages {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.language-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.language-name {
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-.language-level {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* Achievements Section */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.achievement-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.achievement-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.achievement-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #ffd700, #ffb347);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-}
-
-.achievement-icon i {
-    font-size: 2rem;
-    color: white;
-}
-
-.achievement-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.achievement-content .company {
-    color: #3498db;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.achievement-date {
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.achievement-content p {
-    color: #666;
-    line-height: 1.6;
-}
-
-/* Contact Section */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    color: #3498db;
-    width: 30px;
-}
-
-.contact-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.contact-item a {
-    color: #666;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: #3498db;
-}
-
-.contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* Footer */
-.footer {
-    background: #2c3e50;
-    color: white;
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-logo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.footer-logo p {
-    color: #bdc3c7;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: #bdc3c7;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #3498db;
-}
-
-.footer-social {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-}
-
-.social-link {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.social-link:hover {
-    background: #3498db;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #bdc3c7;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .about-content,
-    .skills-container,
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .footer-links {
-        justify-content: center;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .container {
-        padding: 0 15px;
-    }
-
-    .experience-card,
-    .achievement-card {
-        padding: 1.5rem;
-    }
-
-    .soft-skills {
-        justify-content: center;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -762,6 +19,7 @@ p {
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -776,7 +34,16 @@ p {
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-container">
-            <div class="hero-content">
+            <!-- Hero Skeleton -->
+            <div class="hero-skeleton skeleton-card skeleton">
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-avatar"></div>
+
+            <!-- Actual Hero Content -->
+            <div class="hero-content actual-content animate-slide-in-left stagger-1">
                 <h1 class="hero-title">Hi, I'm <span class="highlight">Sihle Leta</span></h1>
                 <p class="hero-subtitle">Bachelor of Commerce (Information Systems) Graduate</p>
                 <p class="hero-description">
@@ -788,9 +55,9 @@ p {
                     <a href="#experience" class="btn btn-secondary">View My Work</a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image actual-content animate-slide-in-right stagger-2">
                 <div class="profile-placeholder">
-                    <i class="fas fa-user-circle"></i>
+                    <img src="assets/Sihle.jpeg" alt="Sihle Leta Profile Picture">
                 </div>
             </div>
         </div>
@@ -799,8 +66,8 @@ p {
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
+            <h2 class="section-title actual-content animate-fade-in-down">About Me</h2>
+            <div class="about-content actual-content animate-slide-in-left stagger-1">
                 <div class="about-text">
                     <p>
                         A detail-oriented and results-driven Information Systems graduate with a strong foundation in database management,
@@ -811,7 +78,7 @@ p {
                         applying technical expertise and innovative thinking in real-world projects.
                     </p>
                 </div>
-                <div class="about-details">
+                <div class="about-details actual-content animate-slide-in-right stagger-2">
                     <div class="detail-item">
                         <i class="fas fa-graduation-cap"></i>
                         <div>
@@ -841,43 +108,29 @@ p {
     <!-- Experience Section -->
     <section id="experience" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
+            <h2 class="section-title actual-content animate-fade-in-down">Professional Experience</h2>
+            <div class="experience-grid actual-content">
+                <div class="experience-card animate-fade-in-up stagger-1">
                     <div class="experience-header">
-                        <h3>Systems Development Intern</h3>
-                        <span class="company">Appimate | East London, SA</span>
-                        <span class="period">Current</span>
+                        <h3>Systems Development Program</h3>
+                        <span class="company">Iris Solutions → Appimate | East London, SA</span>
+                        <span class="period">Jul 2025 – Jul 2026</span>
                     </div>
                     <p class="experience-description">
-                        Applying technical skills in real-world projects, contributing to team-based development and deepening
-                        understanding of business-driven solutions.
+                        One-year comprehensive IT training program combining theoretical knowledge with practical application.
+                        Started as a trainee at Iris Solutions, then placed at Appimate as an intern after one month.
+                        Currently contributing to real-world projects while developing expertise in software development and system analysis.
                     </p>
                     <ul class="experience-highlights">
+                        <li>Started training at Iris Solutions (Jul-Aug 2025)</li>
+                        <li>Placed at Appimate as intern (Aug 2025 - Current)</li>
                         <li>Developing software solutions using modern technologies</li>
                         <li>Collaborating on team projects and agile development</li>
                         <li>Implementing database solutions and system analysis</li>
                     </ul>
                 </div>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Systems Development Trainee</h3>
-                        <span class="company">The Cortex Hub | East London, SA</span>
-                        <span class="period">Jul 2025 – Jul 2026</span>
-                    </div>
-                    <p class="experience-description">
-                        Completed a comprehensive one-year program focused on Python development, databases, and IT fundamentals.
-                        Gained solid practical and theoretical knowledge in information systems, software engineering and data analysis.
-                    </p>
-                    <ul class="experience-highlights">
-                        <li>Mastered Python programming and software development</li>
-                        <li>Database design and management</li>
-                        <li>IT fundamentals and system analysis</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
+                <div class="experience-card animate-fade-in-up stagger-2">
                     <div class="experience-header">
                         <h3>Tutor – Essentials of IT (IFS123E)</h3>
                         <span class="company">University of Fort Hare | East London, SA</span>
@@ -893,7 +146,7 @@ p {
                     </ul>
                 </div>
 
-                <div class="experience-card">
+                <div class="experience-card animate-fade-in-up stagger-3">
                     <div class="experience-header">
                         <h3>Tutor – Fundamentals of Information Systems (IFS121E)</h3>
                         <span class="company">University of Fort Hare | East London, SA</span>
@@ -915,8 +168,8 @@ p {
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Skills & Languages</h2>
-            <div class="skills-container">
+            <h2 class="section-title actual-content animate-fade-in-down">Skills & Languages</h2>
+            <div class="skills-container actual-content">
                 <div class="skills-category">
                     <h3>Technical Skills</h3>
                     <div class="skills-grid">
@@ -996,34 +249,258 @@ p {
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title actual-content animate-fade-in-down">Featured Projects</h2>
+            <div class="projects-grid actual-content">
+                <!-- Work Projects -->
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">InterExperiments</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Interactive experimental platform developed during internship at Appimate.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">TheVoiceLounge</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Voice-based social platform for creative expression and community engagement.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">Express</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Appimate-Business</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Business management platform developed for Appimate's enterprise solutions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Projects -->
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BlockBuster</h3>
+                        <span class="project-category">Personal Project</span>
+                        <p class="project-description">Mobile strategy game similar to Candy Crush built with Xamarin.Forms, featuring 3 difficulty levels, AI opponent, and cross-platform support for iOS and Android.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Xamarin.Forms</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">XAML</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/LettersBlue/BlockBuster" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">CraftSphere</h3>
+                        <span class="project-category">Personal Project</span>
+                        <p class="project-description">Next.js web application for MSMEs to map customer journeys and conduct pre-call surveys, featuring user authentication, analytics dashboard, and responsive design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/LettersBlue/CraftSphere" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FinTech Tutorial</h3>
+                        <span class="project-category">Personal Project</span>
+                        <p class="project-description">Educational platform for learning financial technology concepts and implementations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/LettersBlue/fintech_tut_sihle_first" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hackathon Projects -->
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Human Rights Hack</h3>
+                        <span class="project-category">Hackathon Project</span>
+                        <p class="project-description">Award-winning solution addressing human rights issues through innovative technology.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Xola-Jininda/Human-Right-Hack" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI SMME App</h3>
+                        <span class="project-category">Hackathon Project</span>
+                        <p class="project-description">AI-powered application for small and medium enterprises to optimize business operations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">FastAPI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OsaretinJohnson1/ai-smme-app" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">African Nations League</h3>
+                        <span class="project-category">Personal Project</span>
+                        <p class="project-description">Comprehensive tournament simulation platform for the African Nations League built with Next.js 16, Firebase, and AI-powered match commentary.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/LettersBlue/african-nations-league" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Achievements Section -->
     <section id="achievements" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Notable Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
+            <h2 class="section-title actual-content animate-fade-in-down">Notable Achievements</h2>
+            <div class="achievements-grid actual-content">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
                     <div class="achievement-content">
                         <h3>1st Place - IDZ Hackathon</h3>
+                        <span class="company">Eastern Cape Region</span>
                         <p class="achievement-date">2025</p>
-                        <p>Demonstrated innovative problem-solving and technical excellence in a competitive environment.</p>
+                        <p>Demonstrated innovative problem-solving and technical excellence in a competitive regional environment.</p>
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-medal"></i>
                     </div>
                     <div class="achievement-content">
                         <h3>1st Place - WRSETA Hackathon</h3>
+                        <span class="company">Nationwide - Johannesburg</span>
                         <p class="achievement-date">2025</p>
-                        <p>Excelled in collaborative coding challenges and creative solution development.</p>
+                        <p>Excelled in collaborative coding challenges and creative solution development at national level.</p>
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-award"></i>
                     </div>
@@ -1035,12 +512,12 @@ p {
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>2nd Place - Tall-her Hackathon</h3>
+                        <h3>2nd Place - Telkom Hackathon</h3>
                         <span class="company">Eastern Cape Region</span>
                         <p class="achievement-date">2024</p>
                         <p>Achieved recognition for technical innovation and competitive programming skills.</p>
@@ -1053,8 +530,8 @@ p {
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
+            <h2 class="section-title actual-content animate-fade-in-down">Get In Touch</h2>
+            <div class="contact-container actual-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -1111,6 +588,7 @@ p {
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
                     <a href="#achievements">Achievements</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -1126,244 +604,6 @@ p {
         </div>
     </footer>
 
-    <script>
-// Navigation Toggle for Mobile
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-
-        // Close mobile menu after clicking
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-    });
-});
-
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Active navigation link on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Contact form handling
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-
-    // Simple form validation
-    if (!data.name || !data.email || !data.subject || !data.message) {
-        showNotification('Please fill in all fields.', 'error');
-        return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        showNotification('Please enter a valid email address.', 'error');
-        return;
-    }
-
-    // Simulate form submission (replace with actual backend integration)
-    showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-
-    // Reset form
-    contactForm.reset();
-});
-
-// Notification system
-function showNotification(message, type) {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-
-    // Add to page
-    document.body.appendChild(notification);
-
-    // Show notification
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-
-    // Hide and remove notification
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Add notification styles dynamically
-const notificationStyles = `
-    .notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    }
-
-    .notification.show {
-        transform: translateX(0);
-    }
-
-    .notification.success {
-        background: #27ae60;
-    }
-
-    .notification.error {
-        background: #e74c3c;
-    }
-`;
-
-const styleSheet = document.createElement('style');
-styleSheet.textContent = notificationStyles;
-document.head.appendChild(styleSheet);
-
-// Animate skill bars on scroll
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillFills = entry.target.querySelectorAll('.skill-fill');
-            skillFills.forEach(fill => {
-                fill.style.width = fill.style.width; // Trigger animation
-            });
-        }
-    });
-}, { threshold: 0.5 });
-
-const skillsSection = document.getElementById('skills');
-if (skillsSection) {
-    skillObserver.observe(skillsSection);
-}
-
-// Animate elements on scroll
-const animateOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-        }
-    });
-}, { threshold: 0.1 });
-
-// Add animation classes to elements
-document.querySelectorAll('.experience-card, .achievement-card, .detail-item, .contact-item').forEach(el => {
-    animateOnScroll.observe(el);
-});
-
-// Add CSS for animations
-const animationStyles = `
-    .experience-card,
-    .achievement-card,
-    .detail-item,
-    .contact-item {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .experience-card.animate-in,
-    .achievement-card.animate-in,
-    .detail-item.animate-in,
-    .contact-item.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-`;
-
-const animationStyleSheet = document.createElement('style');
-animationStyleSheet.textContent = animationStyles;
-document.head.appendChild(animationStyleSheet);
-
-// Typing effect for hero subtitle (optional enhancement)
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
-// Initialize typing effect on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        const originalText = heroSubtitle.textContent;
-        typeWriter(heroSubtitle, originalText, 30);
-    }
-});
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
