@@ -16,6 +16,138 @@ body {
     background-color: #fafafa;
 }
 
+/* Skeleton Loading Styles */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 8px;
+}
+
+.skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.skeleton-card {
+    border-radius: 20px;
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.skeleton-avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+/* Fade and Slide In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Element animation classes */
+.animate-fade-in {
+    animation: fadeIn 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.15s; }
+.stagger-2 { animation-delay: 0.3s; }
+.stagger-3 { animation-delay: 0.45s; }
+.stagger-4 { animation-delay: 0.6s; }
+.stagger-5 { animation-delay: 0.75s; }
+.stagger-6 { animation-delay: 0.9s; }
+.stagger-7 { animation-delay: 1.05s; }
+.stagger-8 { animation-delay: 1.2s; }
+.stagger-9 { animation-delay: 1.35s; }
+
+/* Hide content during skeleton loading */
+body.loading .actual-content {
+    display: none;
+}
+
+body:not(.loading) .skeleton {
+    display: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -96,7 +228,7 @@ p {
 
 .nav-menu.active {
     position: absolute;
-    top: 100%;
+    top: 70px;
     left: 0;
     right: 0;
     background: white;
@@ -104,6 +236,7 @@ p {
     padding: 1rem 0;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 15px 15px;
+    z-index: 999;
 }
 
 .nav-menu.active .nav-link {
@@ -820,6 +953,10 @@ p {
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
     }
 
     .nav-toggle {
