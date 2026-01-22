@@ -34,7 +34,16 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-container">
-            <div class="hero-content">
+            <!-- Hero Skeleton -->
+            <div class="hero-skeleton skeleton-card skeleton">
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-avatar"></div>
+
+            <!-- Actual Hero Content -->
+            <div class="hero-content actual-content animate-slide-in-left stagger-1">
                 <h1 class="hero-title">Hi, I'm <span class="highlight">Sihle Leta</span></h1>
                 <p class="hero-subtitle">Bachelor of Commerce (Information Systems) Graduate</p>
                 <p class="hero-description">
@@ -46,9 +55,9 @@
                     <a href="#experience" class="btn btn-secondary">View My Work</a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image actual-content animate-slide-in-right stagger-2">
                 <div class="profile-placeholder">
-                    <i class="fas fa-user-circle"></i>
+                    <img src="assets/Sihle.jpeg" alt="Sihle Leta Profile Picture">
                 </div>
             </div>
         </div>
@@ -57,8 +66,8 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
+            <h2 class="section-title actual-content animate-fade-in-down">About Me</h2>
+            <div class="about-content actual-content animate-slide-in-left stagger-1">
                 <div class="about-text">
                     <p>
                         A detail-oriented and results-driven Information Systems graduate with a strong foundation in database management,
@@ -69,7 +78,7 @@
                         applying technical expertise and innovative thinking in real-world projects.
                     </p>
                 </div>
-                <div class="about-details">
+                <div class="about-details actual-content animate-slide-in-right stagger-2">
                     <div class="detail-item">
                         <i class="fas fa-graduation-cap"></i>
                         <div>
@@ -99,9 +108,9 @@
     <!-- Experience Section -->
     <section id="experience" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
+            <h2 class="section-title actual-content animate-fade-in-down">Professional Experience</h2>
+            <div class="experience-grid actual-content">
+                <div class="experience-card animate-fade-in-up stagger-1">
                     <div class="experience-header">
                         <h3>Systems Development Program</h3>
                         <span class="company">Iris Solutions → Appimate | East London, SA</span>
@@ -121,7 +130,7 @@
                     </ul>
                 </div>
 
-                <div class="experience-card">
+                <div class="experience-card animate-fade-in-up stagger-2">
                     <div class="experience-header">
                         <h3>Tutor – Essentials of IT (IFS123E)</h3>
                         <span class="company">University of Fort Hare | East London, SA</span>
@@ -137,7 +146,7 @@
                     </ul>
                 </div>
 
-                <div class="experience-card">
+                <div class="experience-card animate-fade-in-up stagger-3">
                     <div class="experience-header">
                         <h3>Tutor – Fundamentals of Information Systems (IFS121E)</h3>
                         <span class="company">University of Fort Hare | East London, SA</span>
@@ -159,8 +168,8 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Skills & Languages</h2>
-            <div class="skills-container">
+            <h2 class="section-title actual-content animate-fade-in-down">Skills & Languages</h2>
+            <div class="skills-container actual-content">
                 <div class="skills-category">
                     <h3>Technical Skills</h3>
                     <div class="skills-grid">
@@ -243,10 +252,10 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
+            <h2 class="section-title actual-content animate-fade-in-down">Featured Projects</h2>
+            <div class="projects-grid actual-content">
                 <!-- Work Projects -->
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-rocket"></i>
@@ -269,7 +278,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-microphone"></i>
@@ -292,7 +301,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-briefcase"></i>
@@ -316,7 +325,7 @@
                 </div>
 
                 <!-- Personal Projects -->
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-gamepad"></i>
@@ -340,7 +349,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-chart-line"></i>
@@ -365,7 +374,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-money-bill-wave"></i>
@@ -389,7 +398,7 @@
                 </div>
 
                 <!-- Hackathon Projects -->
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-balance-scale"></i>
@@ -412,7 +421,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-brain"></i>
@@ -435,7 +444,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
                             <i class="fas fa-trophy"></i>
@@ -465,9 +474,9 @@
     <!-- Achievements Section -->
     <section id="achievements" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Notable Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
+            <h2 class="section-title actual-content animate-fade-in-down">Notable Achievements</h2>
+            <div class="achievements-grid actual-content">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
@@ -479,7 +488,7 @@
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-medal"></i>
                     </div>
@@ -491,7 +500,7 @@
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-award"></i>
                     </div>
@@ -503,7 +512,7 @@
                     </div>
                 </div>
 
-                <div class="achievement-card">
+                <div class="achievement-card animate-fade-in-up">
                     <div class="achievement-icon">
                         <i class="fas fa-star"></i>
                     </div>
@@ -521,8 +530,8 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
+            <h2 class="section-title actual-content animate-fade-in-down">Get In Touch</h2>
+            <div class="contact-container actual-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
