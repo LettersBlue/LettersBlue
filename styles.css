@@ -983,6 +983,113 @@ body.modal-open {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.achievement-card-featured {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2.5rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    border: 1px solid rgba(52, 152, 219, 0.12);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.achievement-card-featured .achievement-icon {
+    margin: 0;
+    width: 72px;
+    height: 72px;
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.22);
+}
+
+.achievement-proof {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.achievement-proof-card {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+    border: 1px solid rgba(52, 152, 219, 0.14);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.achievement-proof-copy {
+    min-width: 0;
+}
+
+.achievement-proof-label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3498db;
+}
+
+.achievement-proof-copy h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #2c3e50;
+}
+
+.achievement-proof-button {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.achievement-instagram-embed {
+    width: 100% !important;
+    max-width: 540px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.achievement-facebook-post {
+    width: 100%;
+    display: block;
+    max-width: 500px;
+    height: 773px;
+    border: none;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.achievement-facebook-video {
+    max-width: 560px;
+    height: 314px;
+}
+
+.achievement-proof-link {
+    width: 100%;
+    max-width: 560px;
+    display: block;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(52, 152, 219, 0.14);
+}
+
+.achievement-proof-image {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
 .achievement-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -1035,6 +1142,7 @@ body.modal-open {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
+    align-items: stretch;
 }
 
 .contact-info {
@@ -1079,6 +1187,42 @@ body.modal-open {
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.whatsapp-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 320px;
+}
+
+.whatsapp-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.12);
+    color: #25d366;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.whatsapp-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+.whatsapp-button {
+    min-width: 220px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-group {
@@ -1296,6 +1440,24 @@ body.modal-open {
 
     .skill-item {
         margin-bottom: 0.5rem;
+    }
+
+    .achievement-card-featured {
+        align-items: center;
+        text-align: center;
+    }
+
+    .achievement-card-featured .achievement-icon {
+        margin: 0 auto 1rem;
+    }
+
+    .achievement-proof-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .achievement-proof-button {
+        width: 100%;
     }
 }
 
