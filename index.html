@@ -6,22 +6,28 @@
     <title>Sihle Leta - Information Systems Student</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a class="nav-logo" href="#hero" aria-label="Back to top">
+                <img src="assets/brand-mark.png" alt="" class="nav-logo-mark" aria-hidden="true">
                 <h1>Sihle Leta</h1>
-            </div>
+            </a>
             <div class="nav-menu">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#skills" class="nav-link">Skills</a>
             </div>
             <div class="nav-toggle">
                 <span class="bar"></span>
@@ -52,7 +58,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#experience" class="btn btn-secondary">View My Work</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
                 </div>
             </div>
             <div class="hero-image actual-content animate-slide-in-right stagger-2">
@@ -74,8 +80,8 @@
                         software development, and system analysis. Skilled in problem-solving, data analysis and creating user-friendly applications.
                     </p>
                     <p>
-                        Proven ability to design and implement efficient systems that meet user needs. Currently interning at Appimate,
-                        applying technical expertise and innovative thinking in real-world projects.
+                        Proven ability to design and implement efficient systems that meet user needs. Currently working at Appimate as
+                        a Project Manager and Full Stack Developer, applying technical expertise and innovative thinking in real-world projects.
                     </p>
                 </div>
                 <div class="about-details actual-content animate-slide-in-right stagger-2">
@@ -90,7 +96,7 @@
                         <i class="fas fa-briefcase"></i>
                         <div>
                             <h4>Current Role</h4>
-                            <p>Systems Development Intern<br>Appimate</p>
+                            <p>Project Manager | Full Stack Developer<br>Appimate</p>
                         </div>
                     </div>
                     <div class="detail-item">
@@ -98,151 +104,6 @@
                         <div>
                             <h4>Location</h4>
                             <p>Quigney, East London, South Africa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title actual-content animate-fade-in-down">Professional Experience</h2>
-            <div class="experience-grid actual-content">
-                <div class="experience-card animate-fade-in-up stagger-1">
-                    <div class="experience-header">
-                        <h3>Systems Development Program</h3>
-                        <span class="company">Iris Solutions → Appimate | East London, SA</span>
-                        <span class="period">Jul 2025 – Jul 2026</span>
-                        <span class="company"><a href="mailto:sihle.leta@appimate.com">sihle.leta@appimate.com</a></span>
-                    </div>
-                    <p class="experience-description">
-                        One-year comprehensive IT training program combining theoretical knowledge with practical application.
-                        Started as a trainee at Iris Solutions, then placed at Appimate as an intern after one month.
-                        Currently contributing to real-world projects while developing expertise in software development and system analysis.
-                    </p>
-                    <ul class="experience-highlights">
-                        <li>Started training at Iris Solutions (Jul-Aug 2025)</li>
-                        <li>Placed at Appimate as intern (Aug 2025 - Current)</li>
-                        <li>Developing software solutions using modern technologies</li>
-                        <li>Collaborating on team projects and agile development</li>
-                        <li>Implementing database solutions and system analysis</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card animate-fade-in-up stagger-2">
-                    <div class="experience-header">
-                        <h3>Tutor – Essentials of IT (IFS123E)</h3>
-                        <span class="company">University of Fort Hare | East London, SA</span>
-                        <span class="period">Aug 2024 – Oct 2024</span>
-                    </div>
-                    <p class="experience-description">
-                        Delivered structured tutorial sessions for Essentials of IT, focusing on foundational IT concepts and practical applications.
-                    </p>
-                    <ul class="experience-highlights">
-                        <li>Facilitated interactive tutorial sessions</li>
-                        <li>Assisted students with problem-solving activities</li>
-                        <li>Enhanced technical skills and IT understanding</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card animate-fade-in-up stagger-3">
-                    <div class="experience-header">
-                        <h3>Tutor – Fundamentals of Information Systems (IFS121E)</h3>
-                        <span class="company">University of Fort Hare | East London, SA</span>
-                        <span class="period">May 2024 – Jul 2024</span>
-                    </div>
-                    <p class="experience-description">
-                        Provided academic support and guidance to first-year students, ensuring understanding of key concepts in Information Systems.
-                    </p>
-                    <ul class="experience-highlights">
-                        <li>Developed supplementary learning materials</li>
-                        <li>Improved student performance and engagement</li>
-                        <li>Mentored first-year students effectively</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title actual-content animate-fade-in-down">Skills & Languages</h2>
-            <div class="skills-container actual-content">
-                <div class="skills-category">
-                    <h3>Technical Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name">Database Management</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C#</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">HTML/CSS/JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">System Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 82%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Microsoft Office Suite</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Soft Skills</h3>
-                    <div class="soft-skills">
-                        <span class="soft-skill-tag">Analytical Thinking</span>
-                        <span class="soft-skill-tag">Problem-Solving</span>
-                        <span class="soft-skill-tag">Communication</span>
-                        <span class="soft-skill-tag">Time Management</span>
-                        <span class="soft-skill-tag">Team Collaboration</span>
-                        <span class="soft-skill-tag">Adaptability</span>
-                    </div>
-
-                    <h3>Languages</h3>
-                    <div class="languages">
-                        <div class="language-item">
-                            <span class="language-name">English</span>
-                            <span class="language-level">Main/Preferred</span>
-                        </div>
-                        <div class="language-item">
-                            <span class="language-name">Xhosa</span>
-                            <span class="language-level">Home Language</span>
-                        </div>
-                        <div class="language-item">
-                            <span class="language-name">Afrikaans</span>
-                            <span class="language-level">First Additional Language</span>
                         </div>
                     </div>
                 </div>
@@ -258,18 +119,72 @@
                 <!-- Work Projects -->
                 <div class="project-card animate-fade-in-up">
                     <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-microphone"></i>
-                        </div>
+                        <img src="assets/voice-lounge.png" alt="The Voice Lounge logo" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">TheVoiceLounge</h3>
                         <span class="project-category">AppimateSA - Work</span>
                         <p class="project-description">Voice-based social platform for creative expression and community engagement.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">WebRTC</span>
-                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Expo</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.thevoicelounge.co.za/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
+                            </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="the-voice-lounge" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/citizen-tv.png" alt="Citizen TV logo" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Citizen TV</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Web and mobile citizen-journalism platform for publishing, reviewing, and discovering community stories.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Expo</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://citizentv.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
+                            </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="citizen-tv" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/appimate-business.png" alt="Appimate Business logo" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Appimate-Business</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Business management platform developed for Appimate's enterprise solutions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Convex</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://business.appimate.com" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
+                            </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="appimate-business" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -277,17 +192,26 @@
                 <div class="project-card animate-fade-in-up">
                     <div class="project-image">
                         <div class="project-image-placeholder">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-server"></i>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Appimate-Business</h3>
+                        <h3 class="project-title">Appimate API Server</h3>
                         <span class="project-category">AppimateSA - Work</span>
-                        <p class="project-description">Business management platform developed for Appimate's enterprise solutions.</p>
+                        <p class="project-description">Production API backbone for the Appimate ecosystem, supporting REST, real-time communication, authentication, payments, file processing, and AI integrations.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Socket.io</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link project-link-static">
+                                <i class="fas fa-lock"></i> Private Repository
+                            </span>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="appimate-api" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -310,9 +234,12 @@
                             <span class="tech-tag">SQLite</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LettersBlue/BlockBuster" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
+                            <span class="project-link project-link-static">
+                                <i class="fas fa-lock"></i> Private Repository
+                            </span>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="blockbuster" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -335,65 +262,19 @@
                             <span class="tech-tag">TypeScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LettersBlue/CraftSphere" class="project-link">
+                            <a href="https://github.com/LettersBlue/CraftSphere" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> View Code
                             </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="craftsphere" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card animate-fade-in-up">
                     <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">FinTech Tutorial</h3>
-                        <span class="project-category">Personal Project</span>
-                        <p class="project-description">Educational platform for learning financial technology concepts and implementations.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">SQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/LettersBlue/fintech_tut_sihle_first" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hackathon Projects -->
-                <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Human Rights Hack</h3>
-                        <span class="project-category">Hackathon Project</span>
-                        <p class="project-description">Award-winning solution addressing human rights issues through innovative technology.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">AI/ML</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Xola-Jininda/Human-Right-Hack" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-brain"></i>
-                        </div>
+                        <img src="assets/ai-smme-app-hero.png" alt="AI SMME app hero image" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">AI SMME App</h3>
@@ -405,35 +286,89 @@
                             <span class="tech-tag">FastAPI</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/OsaretinJohnson1/ai-smme-app" class="project-link">
-                                <i class="fab fa-github"></i> View Code
+                            <a href="https://ai-smme-funding.fsell.app" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
                             </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="ai-smme-app" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-trophy"></i>
-                        </div>
+    <!-- Experience Section -->
+    <section id="experience" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title actual-content animate-fade-in-down">Professional Experience</h2>
+            <div class="experience-grid actual-content">
+                <div class="experience-card animate-fade-in-up stagger-1">
+                    <div class="experience-header">
+                        <h3>Project Manager | Full Stack Developer</h3>
+                        <span class="company">Appimate | East London, SA</span>
+                        <span class="period">2025 - 2026</span>
+                        <span class="company"><a href="mailto:sihle.leta@appimate.com">sihle.leta@appimate.com</a></span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">African Nations League</h3>
-                        <span class="project-category">Personal Project</span>
-                        <p class="project-description">Comprehensive tournament simulation platform for the African Nations League built with Next.js 16, Firebase, and AI-powered match commentary.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">AI/ML</span>
-                            <span class="tech-tag">React</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/LettersBlue/african-nations-league" class="project-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
+                    <p class="experience-description">
+                        Building and improving application features across the Appimate product stack, including internal tools,
+                        APIs, databases, analytics, reporting workflows and UI/UX improvements.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Coordinating delivery across Next.js, Express.js, Postgres, MySQL, Supabase, Convex, Firebase, Sentry, PostHog, Umami, Crashlytics, Git and GitHub in a production-style setting.</li>
+                        <li>Supporting production-style delivery across internal tools, APIs, databases, analytics and reporting workflows.</li>
+                        <li>Working on user-facing improvements and system integrations across the Appimate product stack.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card animate-fade-in-up stagger-2">
+                    <div class="experience-header">
+                        <h3>Tutor for Programming</h3>
+                        <span class="company">University of Fort Hare | East London, South Africa Metropolitan Area</span>
+                        <span class="period">Mar 2025 - Jun 2025</span>
                     </div>
+                    <p class="experience-description">
+                        Tutored Introduction to Programming for second-year students at the University of Fort Hare.
+                        Provided daily academic support, including weekends, and assisted with test invigilation.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Supported second-year programming students with daily academic help</li>
+                        <li>Assisted with test invigilation</li>
+                        <li>Built mentoring, problem-solving, and communication skills</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card animate-fade-in-up stagger-3">
+                    <div class="experience-header">
+                        <h3>Student Tutor - Essentials of Information Technology</h3>
+                        <span class="company">University of Fort Hare | East London, SA</span>
+                        <span class="period">Aug 2024 - Oct 2024</span>
+                    </div>
+                    <p class="experience-description">
+                        Delivered structured tutorial sessions for Essentials of Information Technology, focussing on foundational IT concepts and practical applications.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Facilitated interactive tutorial sessions</li>
+                        <li>Assisted students with problem solving and hands-on activities</li>
+                        <li>Strengthened technical skills and understanding of core Information Technology principles</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card animate-fade-in-up stagger-4">
+                    <div class="experience-header">
+                        <h3>Student Tutor - Fundamentals of Information Systems</h3>
+                        <span class="company">University of Fort Hare | East London, SA</span>
+                        <span class="period">May 2024 - Jul 2024</span>
+                    </div>
+                    <p class="experience-description">
+                        Provided academic support and guidance to first year students online and on-site, ensuring their understanding of key concepts in Fundamentals of Information Systems.
+                    </p>
+                    <ul class="experience-highlights">
+                        <li>Facilitated interactive tutorial sessions</li>
+                        <li>Supported student performance and engagement with the course</li>
+                        <li>Helped first-year students with core Information Systems concepts</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -544,6 +479,126 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title actual-content animate-fade-in-down">Skills & Languages</h2>
+            <div class="skills-container actual-content">
+                <div class="skills-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-name">Database Management</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C#</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">HTML/CSS/JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">System Analysis</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Microsoft Office Suite</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Soft Skills</h3>
+                    <div class="soft-skills">
+                        <span class="soft-skill-tag">Analytical Thinking</span>
+                        <span class="soft-skill-tag">Problem-Solving</span>
+                        <span class="soft-skill-tag">Communication</span>
+                        <span class="soft-skill-tag">Time Management</span>
+                        <span class="soft-skill-tag">Team Collaboration</span>
+                        <span class="soft-skill-tag">Adaptability</span>
+                    </div>
+
+                    <h3>Languages</h3>
+                    <div class="languages">
+                        <div class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">Main/Preferred</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Xhosa</span>
+                            <span class="language-level">Home Language</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Afrikaans</span>
+                            <span class="language-level">First Additional Language</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+        <div class="project-modal-backdrop" data-modal-close></div>
+        <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" aria-describedby="projectModalSummary">
+            <button type="button" class="project-modal-close" aria-label="Close project details" data-modal-close>
+                <i class="fas fa-xmark"></i>
+            </button>
+            <div class="project-modal-header">
+                <span class="project-category" id="projectModalCategory"></span>
+                <h3 id="projectModalTitle"></h3>
+                <p class="project-modal-summary" id="projectModalSummary"></p>
+            </div>
+            <div class="project-modal-body">
+                <section class="project-modal-section">
+                    <h4>Overview</h4>
+                    <p id="projectModalOverview"></p>
+                </section>
+                <section class="project-modal-section">
+                    <h4>What it does from start to finish</h4>
+                    <ul id="projectModalFlow"></ul>
+                </section>
+                <section class="project-modal-section">
+                    <h4>Key features</h4>
+                    <ul id="projectModalFeatures"></ul>
+                </section>
+                <section class="project-modal-section">
+                    <h4>Tech stack</h4>
+                    <div class="project-modal-tech" id="projectModalTech"></div>
+                </section>
+            </div>
+            <div class="project-modal-actions" id="projectModalActions">
+                <a class="btn btn-primary project-modal-action" id="projectModalAction" href="#" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+            <p class="project-modal-note" id="projectModalNote" hidden></p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -554,11 +609,11 @@
                 </div>
                 <div class="footer-links">
                     <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
                     <a href="#achievements">Achievements</a>
                     <a href="#contact">Contact</a>
+                    <a href="#skills">Skills</a>
                 </div>
                 <div class="footer-social">
                     <a href="#" class="social-link"><i class="fab fa-github"></i></a>
