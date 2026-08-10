@@ -894,7 +894,10 @@ html[data-theme="light"] .theme-toggle-option-dark {
 }
 
 .project-image-hero img {
-    padding: 0.75rem;
+    padding: 0;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.08);
 }
 
 .project-image-placeholder {
