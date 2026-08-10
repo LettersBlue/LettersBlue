@@ -21,18 +21,32 @@
                 <img src="assets/brand-mark.png" alt="" class="nav-logo-mark" aria-hidden="true">
                 <h1>Sihle Leta</h1>
             </a>
-            <div class="nav-menu">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#achievements" class="nav-link">Achievements</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#skills" class="nav-link">Skills</a>
-            </div>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-right">
+                <div class="nav-menu">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <span class="nav-indicator" aria-hidden="true"></span>
+                </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle theme">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                        <span class="theme-toggle-option theme-toggle-option-light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                        </span>
+                        <span class="theme-toggle-option theme-toggle-option-dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                        </span>
+                    </span>
+                </button>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -69,7 +83,7 @@
             </div>
             <div class="hero-image actual-content animate-slide-in-right stagger-2">
                 <div class="profile-placeholder">
-                    <img src="assets/Sihle.jpeg" alt="Sihle Leta Profile Picture">
+                    <img src="assets/grad.jpeg" alt="Sihle Leta Profile Picture">
                 </div>
             </div>
         </div>
@@ -124,7 +138,7 @@
             <div class="projects-grid actual-content">
                 <!-- Work Projects -->
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
+                    <div class="project-image project-image-dark project-image-logo">
                         <img src="assets/voice-lounge.png" alt="The Voice Lounge logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -148,7 +162,7 @@
                 </div>
 
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
+                    <div class="project-image project-image-dark project-image-logo">
                         <img src="assets/citizen-tv.png" alt="Citizen TV logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -171,8 +185,9 @@
                     </div>
                 </div>
 
+                <!-- Non-live projects -->
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
+                    <div class="project-image project-image-light project-image-logo">
                         <img src="assets/appimate-business.png" alt="Appimate Business logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -196,54 +211,23 @@
                 </div>
 
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-server"></i>
-                        </div>
+                    <div class="project-image project-image-light project-image-hero">
+                        <img src="assets/ai-smme-app-hero.png" alt="AI SMME app hero image" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Appimate API Server</h3>
-                        <span class="project-category">AppimateSA - Work</span>
-                        <p class="project-description">Production API backbone for the Appimate ecosystem, supporting REST, real-time communication, authentication, payments, file processing, and AI integrations.</p>
+                        <h3 class="project-title">AI SMME App</h3>
+                        <span class="project-category">Hackathon Project</span>
+                        <p class="project-description">AI-powered application for small and medium enterprises to optimize business operations.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">FastAPI</span>
                         </div>
                         <div class="project-links">
-                            <span class="project-link project-link-static">
-                                <i class="fas fa-lock"></i> Private Repository
-                            </span>
-                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="appimate-api" aria-haspopup="dialog">
-                                <i class="fas fa-circle-info"></i> Project Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Personal Projects -->
-                <div class="project-card animate-fade-in-up">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">BlockBuster</h3>
-                        <span class="project-category">Personal Project</span>
-                        <p class="project-description">Mobile strategy game similar to Candy Crush built with Xamarin.Forms, featuring 3 difficulty levels, AI opponent, and cross-platform support for iOS and Android.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Xamarin.Forms</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">XAML</span>
-                            <span class="tech-tag">SQLite</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link project-link-static">
-                                <i class="fas fa-lock"></i> Private Repository
-                            </span>
-                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="blockbuster" aria-haspopup="dialog">
+                            <a href="https://ai-smme-funding.fsell.app" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
+                            </a>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="ai-smme-app" aria-haspopup="dialog">
                                 <i class="fas fa-circle-info"></i> Project Details
                             </button>
                         </div>
@@ -280,22 +264,52 @@
 
                 <div class="project-card animate-fade-in-up">
                     <div class="project-image">
-                        <img src="assets/ai-smme-app-hero.png" alt="AI SMME app hero image" loading="lazy">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-server"></i>
+                        </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">AI SMME App</h3>
-                        <span class="project-category">Hackathon Project</span>
-                        <p class="project-description">AI-powered application for small and medium enterprises to optimize business operations.</p>
+                        <h3 class="project-title">Appimate API Server</h3>
+                        <span class="project-category">AppimateSA - Work</span>
+                        <p class="project-description">Production API backbone for the Appimate ecosystem, supporting REST, real-time communication, authentication, payments, file processing, and AI integrations.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Socket.io</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://ai-smme-funding.fsell.app" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-arrow-up-right-from-square"></i> Visit Website
-                            </a>
-                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="ai-smme-app" aria-haspopup="dialog">
+                            <span class="project-link project-link-static">
+                                <i class="fas fa-lock"></i> Private Repository
+                            </span>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="appimate-api" aria-haspopup="dialog">
+                                <i class="fas fa-circle-info"></i> Project Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-fade-in-up">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BlockBuster</h3>
+                        <span class="project-category">Personal Project</span>
+                        <p class="project-description">Mobile strategy game similar to Candy Crush built with Xamarin.Forms, featuring 3 difficulty levels, AI opponent, and cross-platform support for iOS and Android.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Xamarin.Forms</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">XAML</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link project-link-static">
+                                <i class="fas fa-lock"></i> Private Repository
+                            </span>
+                            <button type="button" class="project-link project-link-button project-details-trigger" data-project="blockbuster" aria-haspopup="dialog">
                                 <i class="fas fa-circle-info"></i> Project Details
                             </button>
                         </div>
@@ -471,7 +485,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>Telkom Hackathon</h3>
+                        <h3>2nd Place - Telkom Hackathon</h3>
                         <span class="company">Telkom</span>
                         <p class="achievement-date">2024</p>
                         <p>Developed an educational solution focused on skill development and learning excellence.</p>
