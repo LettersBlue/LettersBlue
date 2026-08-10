@@ -1274,17 +1274,56 @@ body.modal-open {
 .achievement-proof-link {
     width: 100%;
     max-width: 560px;
-    display: block;
-    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 22px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    border: 1px solid var(--accent-soft);
+    border: 1px solid var(--border-soft);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.achievement-proof-link:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+}
+
+.achievement-proof-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.achievement-proof-link-video {
+    text-decoration: none;
+}
+
+.achievement-proof-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(24, 119, 242, 0.12);
+    color: #1877f2;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 6px 16px rgba(24, 119, 242, 0.12);
 }
 
 .achievement-proof-image {
     width: 100%;
     display: block;
     height: auto;
+    border-radius: 16px;
+    outline: 1px solid rgba(15, 23, 42, 0.08);
+    outline-offset: -1px;
 }
 
 .achievement-card:hover {
