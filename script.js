@@ -157,6 +157,103 @@ window.addEventListener('resize', updateNavigationState);
 window.addEventListener('load', updateNavigationState);
 updateNavigationState();
 
+function sampleDominantColor(image) {
+    const sampleSize = 24;
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+
+    if (!context) {
+        return null;
+    }
+
+    canvas.width = sampleSize;
+    canvas.height = sampleSize;
+    context.clearRect(0, 0, sampleSize, sampleSize);
+    context.drawImage(image, 0, 0, sampleSize, sampleSize);
+
+    const { data } = context.getImageData(0, 0, sampleSize, sampleSize);
+    let redTotal = 0;
+    let greenTotal = 0;
+    let blueTotal = 0;
+    let weightTotal = 0;
+
+    for (let index = 0; index < data.length; index += 4) {
+        const alpha = data[index + 3];
+        if (alpha < 24) {
+            continue;
+        }
+
+        const weight = alpha / 255;
+        redTotal += data[index] * weight;
+        greenTotal += data[index + 1] * weight;
+        blueTotal += data[index + 2] * weight;
+        weightTotal += weight;
+    }
+
+    if (!weightTotal) {
+        return null;
+    }
+
+    return {
+        red: Math.round(redTotal / weightTotal),
+        green: Math.round(greenTotal / weightTotal),
+        blue: Math.round(blueTotal / weightTotal)
+    };
+}
+
+function getTintAlpha(rgb) {
+    const luminance = ((0.2126 * rgb.red) + (0.7152 * rgb.green) + (0.0722 * rgb.blue)) / 255;
+
+    if (luminance > 0.75) {
+        return 0.28;
+    }
+
+    if (luminance < 0.4) {
+        return 0.18;
+    }
+
+    return 0.22;
+}
+
+function applyProjectImageAccents() {
+    document.querySelectorAll('.projects-grid .project-card').forEach((card) => {
+        const imageFrame = card.querySelector('.project-image');
+        const image = card.querySelector('.project-image img');
+
+        if (!imageFrame || !image) {
+            return;
+        }
+
+        if (imageFrame.dataset.projectAccentLock === 'true') {
+            return;
+        }
+
+        const paintAccent = () => {
+            try {
+                const rgb = sampleDominantColor(image);
+                if (!rgb) {
+                    return;
+                }
+
+                const alpha = getTintAlpha(rgb);
+                imageFrame.style.background = `linear-gradient(135deg, rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${alpha}), var(--surface))`;
+                imageFrame.style.boxShadow = `inset 0 0 0 1px rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, 0.18)`;
+                card.classList.add('has-project-accent');
+            } catch (error) {
+                // Leave the existing static project frame styling in place.
+            }
+        };
+
+        if (image.complete && image.naturalWidth > 0) {
+            paintAccent();
+        } else {
+            image.addEventListener('load', paintAccent, { once: true });
+        }
+    });
+}
+
+window.addEventListener('load', applyProjectImageAccents);
+
 // Animate skill bars on scroll
 const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
