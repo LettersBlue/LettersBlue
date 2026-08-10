@@ -65,7 +65,7 @@
             <!-- Actual Hero Content -->
             <div class="hero-content actual-content animate-slide-in-left stagger-1">
                 <h1 class="hero-title">Hi, I'm <span class="highlight">Sihle Leta</span></h1>
-                <p class="hero-subtitle">Bachelor of Commerce (Information Systems) Graduate</p>
+                <p class="hero-subtitle">Bachelor of Commerce (Information Systems) Cum Laude Graduate</p>
                 <p class="hero-description">
                     A detail-oriented and results-driven Information Systems graduate with expertise in database management,
                     software development, and system analysis. Passionate about creating efficient solutions and innovative applications.
@@ -96,7 +96,7 @@
             <div class="about-content actual-content animate-slide-in-left stagger-1">
                 <div class="about-text">
                     <p>
-                        A detail-oriented and results-driven Information Systems graduate with a strong foundation in database management,
+                        A detail-oriented and results-driven Information Systems cum laude graduate with a strong foundation in database management,
                         software development, and system analysis. Skilled in problem-solving, data analysis and creating user-friendly applications.
                     </p>
                     <p>
@@ -109,7 +109,7 @@
                         <i class="fas fa-graduation-cap"></i>
                         <div>
                             <h4>Education</h4>
-                            <p>Bachelor of Commerce (Information Systems)<br>University of Fort Hare</p>
+                            <p>Bachelor of Commerce (Information Systems) — Cum Laude<br>University of Fort Hare</p>
                         </div>
                     </div>
                     <div class="detail-item">
@@ -138,7 +138,7 @@
             <div class="projects-grid actual-content">
                 <!-- Work Projects -->
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image project-image-dark project-image-logo">
+                    <div class="project-image project-image-dark project-image-logo" data-project-accent-lock="true" style="background: #1a1418;">
                         <img src="assets/voice-lounge.png" alt="The Voice Lounge logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image project-image-dark project-image-logo">
+                    <div class="project-image project-image-dark project-image-logo" data-project-accent-lock="true" style="background: #102352;">
                         <img src="assets/citizen-tv.png" alt="Citizen TV logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -187,7 +187,7 @@
 
                 <!-- Non-live projects -->
                 <div class="project-card animate-fade-in-up">
-                    <div class="project-image project-image-light project-image-logo">
+                    <div class="project-image project-image-light project-image-logo" data-project-accent-lock="true" style="background: #ffffff;">
                         <img src="assets/appimate-business.png" alt="Appimate Business logo" loading="lazy">
                     </div>
                     <div class="project-content">
@@ -492,12 +492,17 @@
                     </div>
                     <div class="achievement-proof">
                         <a
-                            class="achievement-proof-link"
+                            class="achievement-proof-link achievement-proof-link-video"
                             href="https://www.facebook.com/cortexhub/videos/1250483089376684/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Open the Telkom Hackathon video on Facebook"
+                            aria-describedby="telkom-hackathon-caption"
                         >
+                            <span class="achievement-proof-badge" aria-hidden="true">
+                                <i class="fab fa-facebook"></i>
+                                Open Facebook video
+                            </span>
                             <img
                                 class="achievement-proof-image"
                                 src="assets/telkom-hackathon-proof.png"
@@ -505,6 +510,16 @@
                                 loading="lazy"
                             >
                         </a>
+                        <div class="achievement-proof-caption" id="telkom-hackathon-caption">
+                            <p class="achievement-proof-caption-source">
+                                <span>Posted by</span> Cortex Hub · 3 October 2024
+                            </p>
+                            <p class="achievement-proof-caption-text">
+                                Telkom Hackathon coverage from Cortex Hub, created in collaboration with Geekulcha,
+                                NEMISA, Walter Sisulu University, SYNC, the Eastern Cape Office of the Premier, and
+                                She Leads Africa. Fifty participants coded through a 36-hour challenge in East London.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -677,34 +692,6 @@
             <p class="project-modal-note" id="projectModalNote" hidden></p>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Sihle Leta</h3>
-                    <p>Information Systems Graduate & Developer</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#achievements">Achievements</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#skills">Skills</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sihle Leta. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
     <script async src="https://www.instagram.com/embed.js"></script>
