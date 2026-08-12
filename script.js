@@ -84,9 +84,10 @@ function openMobileMenu() {
     window.requestAnimationFrame(updateNavigationState);
 }
 
-function closeMobileMenu({ returnFocus = false, immediate = false } = {}) {
+function closeMobileMenu({ returnFocus = false, immediate = false, onClosed = null } = {}) {
     if (!mobileNavDialog || !mobileNavDialog.open) {
         setMobileMenuState(false);
+        onClosed?.();
         return;
     }
 
@@ -101,6 +102,7 @@ function closeMobileMenu({ returnFocus = false, immediate = false } = {}) {
         if (returnFocus && navToggle) {
             navToggle.focus();
         }
+        onClosed?.();
     };
 
     if (immediate) {
@@ -143,7 +145,9 @@ function scrollToSection(targetSection) {
     }
 
     const navbarOffset = navbar ? navbar.offsetHeight : 70;
-    const offsetTop = Math.max(targetSection.getBoundingClientRect().top + window.scrollY - navbarOffset - 10, 0);
+    const targetHeading = targetSection.querySelector('.section-title') || targetSection;
+    const headingGap = 28;
+    const offsetTop = Math.max(targetHeading.getBoundingClientRect().top + window.scrollY - navbarOffset - headingGap, 0);
 
     window.scrollTo({
         top: offsetTop,
@@ -157,8 +161,11 @@ navLinks.forEach((link) => {
         const targetId = link.getAttribute('href');
         const targetSection = document.querySelector(targetId);
 
-        scrollToSection(targetSection);
-        closeMobileMenu();
+        if (mobileNavDialog?.open) {
+            closeMobileMenu({ onClosed: () => scrollToSection(targetSection) });
+        } else {
+            scrollToSection(targetSection);
+        }
     });
 });
 
