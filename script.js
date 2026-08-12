@@ -69,8 +69,10 @@ function closeMobileMenu() {
 
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
+        const isOpening = !navMenu.classList.contains('active');
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
     });
 }
 
