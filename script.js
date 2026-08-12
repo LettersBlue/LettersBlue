@@ -15,6 +15,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const mobileNavDialog = document.querySelector('.mobile-nav-dialog');
 const mobileNavClose = document.querySelector('.mobile-nav-close');
+const mobileNavLinks = document.querySelector('.mobile-nav-links');
 const navIndicator = document.querySelector('.nav-indicator');
 const navLinks = Array.from(document.querySelectorAll('.nav-link, .mobile-nav-link'));
 const trackedSections = Array.from(new Set(navLinks
@@ -80,6 +81,7 @@ function openMobileMenu() {
     mobileNavDialog.classList.remove('is-closing');
     mobileNavDialog.showModal();
     setMobileMenuState(true);
+    window.requestAnimationFrame(updateNavigationState);
 }
 
 function closeMobileMenu({ returnFocus = false, immediate = false } = {}) {
@@ -160,24 +162,87 @@ navLinks.forEach((link) => {
     });
 });
 
-function updateNavIndicator() {
+function getNavigationProgress() {
+    if (trackedSections.length < 2) {
+        return 0;
+    }
+
+    const navbarOffset = navbar ? navbar.offsetHeight : 70;
+    const probeLine = window.scrollY + navbarOffset + (window.innerHeight * 0.35);
+    const sectionStops = trackedSections.map((section) => section.offsetTop - 12);
+
+    if (probeLine <= sectionStops[0]) {
+        return 0;
+    }
+
+    for (let index = 0; index < sectionStops.length - 1; index += 1) {
+        const currentStop = sectionStops[index];
+        const nextStop = sectionStops[index + 1];
+
+        if (probeLine <= nextStop) {
+            const distance = Math.max(nextStop - currentStop, 1);
+            const sectionProgress = Math.min(Math.max((probeLine - currentStop) / distance, 0), 1);
+            return (index + sectionProgress) / (sectionStops.length - 1);
+        }
+    }
+
+    return 1;
+}
+
+function updateDesktopNavProgress(progress) {
     if (!navIndicator || !navMenu || window.innerWidth <= 768) {
         return;
     }
 
-    const activeLink = navMenu.querySelector('.nav-link.active');
-    if (!activeLink) {
-        navIndicator.style.opacity = '0';
+    const desktopLinks = Array.from(navMenu.querySelectorAll('.nav-link'));
+    const firstLink = desktopLinks[0];
+    const lastLink = desktopLinks[desktopLinks.length - 1];
+
+    if (!firstLink || !lastLink) {
         return;
     }
 
     const menuRect = navMenu.getBoundingClientRect();
-    const linkRect = activeLink.getBoundingClientRect();
-    const left = linkRect.left - menuRect.left;
+    const firstRect = firstLink.getBoundingClientRect();
+    const lastRect = lastLink.getBoundingClientRect();
+    const start = firstRect.left - menuRect.left;
+    const end = lastRect.right - menuRect.left;
+    const trackLength = Math.max(end - start, 0);
 
-    navIndicator.style.width = `${linkRect.width}px`;
-    navIndicator.style.transform = `translateX(${left}px)`;
-    navIndicator.style.opacity = '1';
+    navMenu.style.setProperty('--nav-progress-start', `${start}px`);
+    navMenu.style.setProperty('--nav-progress-track', `${trackLength}px`);
+    navMenu.style.setProperty('--nav-progress-fill', `${trackLength * progress}px`);
+}
+
+function updateMobileNavProgress(progress) {
+    if (!mobileNavDialog?.open || !mobileNavLinks) {
+        return;
+    }
+
+    const drawerLinks = Array.from(mobileNavLinks.querySelectorAll('.mobile-nav-link'));
+    const firstLink = drawerLinks[0];
+    const lastLink = drawerLinks[drawerLinks.length - 1];
+
+    if (!firstLink || !lastLink) {
+        return;
+    }
+
+    const linksRect = mobileNavLinks.getBoundingClientRect();
+    const firstRect = firstLink.getBoundingClientRect();
+    const lastRect = lastLink.getBoundingClientRect();
+    const start = firstRect.top + (firstRect.height / 2) - linksRect.top;
+    const end = lastRect.top + (lastRect.height / 2) - linksRect.top;
+    const trackLength = Math.max(end - start, 0);
+
+    mobileNavLinks.style.setProperty('--mobile-progress-start', `${start}px`);
+    mobileNavLinks.style.setProperty('--mobile-progress-track', `${trackLength}px`);
+    mobileNavLinks.style.setProperty('--mobile-progress-fill', `${trackLength * progress}px`);
+}
+
+function updateNavigationProgress() {
+    const progress = getNavigationProgress();
+    updateDesktopNavProgress(progress);
+    updateMobileNavProgress(progress);
 }
 
 function getCurrentSectionId() {
@@ -210,7 +275,7 @@ function updateNavigationState() {
         navbar.classList.toggle('scrolled', window.scrollY > 20);
     }
 
-    updateNavIndicator();
+    updateNavigationProgress();
 }
 
 window.addEventListener('scroll', updateNavigationState, { passive: true });
