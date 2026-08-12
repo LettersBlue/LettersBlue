@@ -42,14 +42,31 @@
                         </span>
                     </span>
                 </button>
-                <div class="nav-toggle">
+                <button type="button" class="nav-toggle" aria-label="Open navigation menu" aria-controls="mobileNavigation" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </div>
     </nav>
+
+    <dialog class="mobile-nav-dialog" id="mobileNavigation" aria-labelledby="mobileNavigationTitle">
+        <div class="mobile-nav-header">
+            <h2 id="mobileNavigationTitle">Navigation</h2>
+            <button type="button" class="mobile-nav-close" aria-label="Close navigation menu" autofocus>
+                <i class="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links" aria-label="Mobile navigation">
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="#experience" class="mobile-nav-link">Experience</a>
+            <a href="#achievements" class="mobile-nav-link">Achievements</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="#skills" class="mobile-nav-link">Skills</a>
+        </nav>
+    </dialog>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
