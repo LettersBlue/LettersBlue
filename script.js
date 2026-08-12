@@ -13,13 +13,16 @@ document.body.classList.add('loading');
 const navbar = document.querySelector('.navbar');
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const mobileNavDialog = document.querySelector('.mobile-nav-dialog');
+const mobileNavClose = document.querySelector('.mobile-nav-close');
 const navIndicator = document.querySelector('.nav-indicator');
-const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-const trackedSections = navLinks
+const navLinks = Array.from(document.querySelectorAll('.nav-link, .mobile-nav-link'));
+const trackedSections = Array.from(new Set(navLinks
     .map((link) => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
+    .filter(Boolean)));
 const themeToggle = document.getElementById('themeToggle');
 const themeStorageKey = 'lettersblue-theme';
+let mobileNavCloseTimer;
 
 function getPreferredTheme() {
     try {
@@ -58,21 +61,77 @@ if (themeToggle) {
     });
 }
 
-function closeMobileMenu() {
-    if (!navMenu || !navToggle) {
+function setMobileMenuState(isOpen) {
+    if (!navToggle) {
         return;
     }
 
-    navMenu.classList.remove('active');
-    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    document.body.classList.toggle('mobile-nav-open', isOpen);
 }
 
-if (navToggle && navMenu) {
+function openMobileMenu() {
+    if (!mobileNavDialog || mobileNavDialog.open || window.innerWidth > 768) {
+        return;
+    }
+
+    window.clearTimeout(mobileNavCloseTimer);
+    mobileNavDialog.classList.remove('is-closing');
+    mobileNavDialog.showModal();
+    setMobileMenuState(true);
+}
+
+function closeMobileMenu({ returnFocus = false, immediate = false } = {}) {
+    if (!mobileNavDialog || !mobileNavDialog.open) {
+        setMobileMenuState(false);
+        return;
+    }
+
+    setMobileMenuState(false);
+    window.clearTimeout(mobileNavCloseTimer);
+
+    const finishClose = () => {
+        if (mobileNavDialog.open) {
+            mobileNavDialog.close();
+        }
+        mobileNavDialog.classList.remove('is-closing');
+        if (returnFocus && navToggle) {
+            navToggle.focus();
+        }
+    };
+
+    if (immediate) {
+        finishClose();
+        return;
+    }
+
+    mobileNavDialog.classList.add('is-closing');
+    mobileNavCloseTimer = window.setTimeout(finishClose, 180);
+}
+
+if (navToggle && mobileNavDialog) {
     navToggle.addEventListener('click', () => {
-        const isOpening = !navMenu.classList.contains('active');
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
+        if (mobileNavDialog.open) {
+            closeMobileMenu({ returnFocus: true });
+        } else {
+            openMobileMenu();
+        }
+    });
+
+    mobileNavClose?.addEventListener('click', () => {
+        closeMobileMenu({ returnFocus: true });
+    });
+
+    mobileNavDialog.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeMobileMenu({ returnFocus: true });
+    });
+
+    mobileNavDialog.addEventListener('click', (event) => {
+        if (event.target === mobileNavDialog) {
+            closeMobileMenu({ returnFocus: true });
+        }
     });
 }
 
@@ -106,7 +165,7 @@ function updateNavIndicator() {
         return;
     }
 
-    const activeLink = document.querySelector('.nav-link.active');
+    const activeLink = navMenu.querySelector('.nav-link.active');
     if (!activeLink) {
         navIndicator.style.opacity = '0';
         return;
@@ -155,7 +214,12 @@ function updateNavigationState() {
 }
 
 window.addEventListener('scroll', updateNavigationState, { passive: true });
-window.addEventListener('resize', updateNavigationState);
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeMobileMenu({ immediate: true });
+    }
+    updateNavigationState();
+});
 window.addEventListener('load', updateNavigationState);
 updateNavigationState();
 
