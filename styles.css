@@ -1183,6 +1183,19 @@ body.mobile-nav-open {
     transform: scale(1.08);
 }
 
+.project-image-white-fill {
+    background: #ffffff !important;
+}
+
+.project-image-white-fill img {
+    width: auto;
+    height: auto;
+    max-width: 78%;
+    max-height: 78%;
+    object-fit: contain;
+    padding: 0;
+}
+
 .project-image-placeholder {
     color: white;
     font-size: 3rem;

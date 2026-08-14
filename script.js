@@ -604,6 +604,27 @@ const projectDetails = {
             label: 'Visit Website',
             href: 'https://ai-smme-funding.fsell.app'
         }
+    },
+    speedloans: {
+        title: 'SpeedLoans',
+        category: 'Client Project',
+        summary: 'Loan application platform designed to make it easy for applicants to get started and stay informed.',
+        overview: 'SpeedLoans is a loan application platform focused on a smooth customer journey from application to follow-up, with clear communication throughout.',
+        flow: [
+            'Guide applicants through a simple application journey.',
+            'Keep users updated as their application moves forward.',
+            'Support clear communication between the platform and the applicant.'
+        ],
+        features: [
+            'Simple application journey',
+            'Clear applicant communication',
+            'Fast status updates'
+        ],
+        tech: ['Next.js', 'Supabase', 'Supabase Realtime'],
+        action: {
+            label: 'Visit Website',
+            href: 'https://speedloans.co.za/'
+        }
     }
 };
 
