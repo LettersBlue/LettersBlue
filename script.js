@@ -452,6 +452,7 @@ const projectModal = document.getElementById('projectModal');
 const projectModalCategory = document.getElementById('projectModalCategory');
 const projectModalTitle = document.getElementById('projectModalTitle');
 const projectModalSummary = document.getElementById('projectModalSummary');
+const projectModalLegend = document.getElementById('projectModalLegend');
 const projectModalOverview = document.getElementById('projectModalOverview');
 const projectModalFlow = document.getElementById('projectModalFlow');
 const projectModalFeatures = document.getElementById('projectModalFeatures');
@@ -465,21 +466,47 @@ let lastProjectTrigger = null;
 
 const projectDetails = {
     'the-voice-lounge': {
-        title: 'TheVoiceLounge',
-        category: 'AppimateSA - Work',
-        summary: 'Media and community platform spanning public content and admin workflows for radio, podcast, and studio operations.',
-        overview: 'The Voice Lounge brings the public-facing content experience and the back-office admin flow together. It lets people discover and engage with media content while giving the team a structured way to manage radio, podcast, and recording-studio operations from one workflow.',
+        title: 'The Voice Lounge',
+        category: 'Client Project',
+        summary: 'One release unit covering the web app, admin dashboard, and mobile app on shared Supabase services.',
+        overview: 'The Voice Lounge is the official listener website, staff dashboard, and mobile application suite. It is organized as one release unit with separate web, admin, and mobile apps that share Supabase authentication, PostgreSQL data, and storage while keeping each client\'s responsibilities distinct.',
+        legend: [
+            { label: 'Web', tone: 'voice-web' },
+            { label: 'Admin', tone: 'voice-admin' },
+            { label: 'Mobile', tone: 'voice-mobile' },
+            { label: 'Shared', tone: 'voice-shared' }
+        ],
         flow: [
-            'Users discover content through the public experience.',
-            'Editors and admins manage radio, podcast, and studio operations.',
-            'Publishing and operational updates stay connected across the platform.'
+            { tone: 'voice-web', text: 'Public listening, shows, podcasts, announcements, member profiles, subscriptions, and PayFast payments.' },
+            { tone: 'voice-admin', text: 'Hosts, producers, and administrators use a server-authoritative dashboard with capability checks.' },
+            { tone: 'voice-mobile', text: 'The Expo Router mobile app serves iOS and Android listeners with anonymous-client access.' },
+            { tone: 'voice-shared', text: 'Authenticated server endpoints are shared by the web and mobile apps.' },
+            { tone: 'voice-shared', text: 'Route handlers validate transport input before calling feature services.' },
+            { tone: 'voice-shared', text: 'Services own business rules and workflow orchestration.' },
+            { tone: 'voice-shared', text: 'Repositories own Supabase persistence, storage access, and privileged provider state.' },
+            { tone: 'voice-shared', text: 'Browser-side Supabase stays limited to the anonymous key and approved RLS operations.' }
         ],
         features: [
-            'Content management for media teams',
-            'Operational tooling for radio, podcast, and studio workflows',
-            'Responsive web and mobile surfaces'
+            { tone: 'voice-web', text: 'Public listening, member profiles, subscriptions, and announcements.' },
+            { tone: 'voice-web', text: 'PayFast payments with server-only credentials, signatures, and reconciliation.' },
+            { tone: 'voice-admin', text: 'Show, schedule, analytics, content, and platform-setting workflows.' },
+            { tone: 'voice-mobile', text: 'Expo Router listener experience for iOS and Android.' },
+            { tone: 'voice-shared', text: 'Authenticated server endpoints for the website and mobile app.' },
+            { tone: 'voice-shared', text: 'Feature services, Supabase repositories, and server-only integrations.' },
+            { tone: 'voice-shared', text: 'Shared Supabase authentication, PostgreSQL, and object storage.' }
         ],
-        tech: ['Next.js', 'Supabase', 'Expo'],
+        tech: [
+            { tone: 'voice-web', text: 'Next.js' },
+            { tone: 'voice-web', text: 'TypeScript' },
+            { tone: 'voice-admin', text: 'React Hook Form' },
+            { tone: 'voice-admin', text: 'Zod' },
+            { tone: 'voice-mobile', text: 'Expo Router' },
+            { tone: 'voice-mobile', text: 'React Native' },
+            { tone: 'voice-shared', text: 'Supabase' },
+            { tone: 'voice-shared', text: 'PayFast' },
+            { tone: 'voice-shared', text: 'Vercel' },
+            { tone: 'voice-shared', text: 'GitHub Actions' }
+        ],
         action: {
             label: 'Visit Website',
             href: 'https://www.thevoicelounge.co.za/'
@@ -487,7 +514,7 @@ const projectDetails = {
     },
     'citizen-tv': {
         title: 'Citizen TV',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Public-facing citizen-journalism platform for publishing, reviewing, and discovering community stories.',
         overview: 'Citizen TV is built for news and community content. The flow starts with browsing stories, weather, and alerts, then moves into saved items and categories, and finishes with upload and publishing workflows that keep community content moving.',
         flow: [
@@ -508,7 +535,7 @@ const projectDetails = {
     },
     'appimate-business': {
         title: 'Appimate Business',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Business intelligence platform for invoicing, quotations, payroll, reporting, and analytics.',
         overview: 'Appimate Business is the front-end for a business intelligence platform that handles invoicing, quotations, payroll, reporting, and analytics. The experience starts with business data capture, then moves into day-to-day operations, and ends with dashboards and reporting that help teams make decisions.',
         flow: [
@@ -529,7 +556,7 @@ const projectDetails = {
     },
     'appimate-api': {
         title: 'Appimate API Server',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Backend infrastructure for Appimate Business, covering authentication, realtime, file handling, payments, and automation.',
         overview: 'The Appimate API Server powers the Appimate ecosystem. It exposes production backend services for authentication, realtime communication, file handling, payments, notifications, and automation that keep the business platform moving.',
         flow: [
@@ -547,7 +574,7 @@ const projectDetails = {
     },
     blockbuster: {
         title: 'BlockBuster',
-        category: 'Personal Project',
+        category: 'School Project',
         summary: 'Xamarin.Forms Android game with three difficulty levels, an AI opponent, and a mobile gameplay loop.',
         overview: 'BlockBuster is a Xamarin.Forms Android game built as a final-year BCom Information Systems project. The experience covers game setup, difficulty selection, AI opponent play, and a mobile gameplay loop designed for cross-platform use.',
         flow: [
@@ -565,7 +592,7 @@ const projectDetails = {
     },
     craftsphere: {
         title: 'CraftSphere',
-        category: 'Personal Project',
+        category: 'School Project',
         summary: 'Next.js application for MSMEs to map customer journeys and conduct pre-call surveys.',
         overview: 'CraftSphere is a Next.js application for MSMEs to map customer journeys and conduct pre-call surveys. It combines authentication, role-based access, and a dashboard so teams can move from intake to insight in one place.',
         flow: [
@@ -585,10 +612,10 @@ const projectDetails = {
         }
     },
     'ai-smme-app': {
-        title: 'AI SMME App',
-        category: 'Hackathon Project',
+        title: 'AI SMME Funding',
+        category: 'Client Project',
         summary: 'AI-powered funding application platform that uses voice-to-text and guided workflows to produce submission-ready applications.',
-        overview: 'The AI SMME App helps entrepreneurs turn funding ideas into structured applications. The workflow uses voice-to-text and guided prompts to match applicants with opportunities and produce submission-ready applications.',
+        overview: 'AI SMME Funding helps entrepreneurs turn funding ideas into structured applications. The workflow uses voice-to-text and guided prompts to match applicants with opportunities and produce submission-ready applications.',
         flow: [
             'Capture an idea through voice or guided input.',
             'Match the application to suitable funding opportunities.',
@@ -604,6 +631,46 @@ const projectDetails = {
             label: 'Visit Website',
             href: 'https://ai-smme-funding.fsell.app'
         }
+    },
+    speedloans: {
+        title: 'SpeedLoans',
+        category: 'Client Project',
+        summary: 'Community-focused lending platform for quick personal loans with borrower and admin experiences.',
+        overview: 'SpeedLoans is a community-focused lending platform for quick personal loans. Borrowers can apply online, track applications, view payment schedules, and download statements, while admins review applications, manage customers, disburse funds, and monitor portfolio health.',
+        flow: [
+            'Guide borrowers through a multi-step loan application with real-time payment calculations.',
+            'Track applications through pending, approved, disbursed, and repaid states.',
+            'Let borrowers view payment history, schedules, and downloadable statements.',
+            'Give admins tools to review applications, manage customers, and monitor portfolio health.'
+        ],
+        features: [
+            'Borrower self-service portal',
+            'Admin dashboard with review queue',
+            'Payment schedules and statement downloads',
+            'Portfolio monitoring and audit trail'
+        ],
+        tech: [
+            'Next.js 16.2.1',
+            'TypeScript',
+            'Node.js 22',
+            'PostgreSQL (Supabase)',
+            'Drizzle ORM',
+            'NextAuth.js v5',
+            'TanStack React Query v5',
+            'Tailwind CSS v4',
+            'Radix UI / shadcn/ui',
+            'React Hook Form + Zod',
+            'Nodemailer (Mailtrap)',
+            'Twilio',
+            'Cloudflare Turnstile',
+            'Framer Motion',
+            'Vercel',
+            'GitHub Actions'
+        ],
+        action: {
+            label: 'Visit Website',
+            href: 'https://speedloans.co.za/'
+        }
     }
 };
 
@@ -613,10 +680,35 @@ function renderChipList(container, values) {
     }
 
     container.innerHTML = '';
+    const orderedValues = [...values].sort((a, b) => {
+        const aShared = a && typeof a === 'object' && a.tone === 'voice-shared';
+        const bShared = b && typeof b === 'object' && b.tone === 'voice-shared';
+        return Number(aShared) - Number(bShared);
+    });
+
+    orderedValues.forEach((value) => {
+        const chip = document.createElement('span');
+        if (value && typeof value === 'object') {
+            chip.className = `tech-tag project-legend-chip ${value.tone || ''}`.trim();
+            chip.textContent = value.text;
+        } else {
+            chip.className = 'tech-tag';
+            chip.textContent = value;
+        }
+        container.appendChild(chip);
+    });
+}
+
+function renderLegend(container, values) {
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = '';
     values.forEach((value) => {
         const chip = document.createElement('span');
-        chip.className = 'tech-tag';
-        chip.textContent = value;
+        chip.className = `project-legend-chip ${value.tone || ''}`.trim();
+        chip.textContent = value.label;
         container.appendChild(chip);
     });
 }
@@ -627,9 +719,31 @@ function renderBulletList(container, values) {
     }
 
     container.innerHTML = '';
-    values.forEach((value) => {
+    const orderedValues = [...values].sort((a, b) => {
+        const aShared = a && typeof a === 'object' && a.tone === 'voice-shared';
+        const bShared = b && typeof b === 'object' && b.tone === 'voice-shared';
+        return Number(aShared) - Number(bShared);
+    });
+
+    let sharedBadgeUsed = false;
+    orderedValues.forEach((value) => {
         const item = document.createElement('li');
-        item.textContent = value;
+        if (value && typeof value === 'object') {
+            item.className = `project-modal-item ${value.tone || ''}`.trim();
+            const text = document.createElement('span');
+            text.textContent = value.text;
+            if (value.tone === 'voice-shared') {
+                if (!sharedBadgeUsed) {
+                    item.classList.add('shared-leading');
+                    sharedBadgeUsed = true;
+                }
+            } else {
+                item.classList.add('non-shared');
+            }
+            item.append(text);
+        } else {
+            item.textContent = value;
+        }
         container.appendChild(item);
     });
 }
@@ -656,6 +770,10 @@ function openProjectModal(projectKey, trigger) {
 
     if (projectModalSummary) {
         projectModalSummary.textContent = project.summary;
+    }
+
+    if (projectModalLegend) {
+        renderLegend(projectModalLegend, project.legend || []);
     }
 
     if (projectModalOverview) {
@@ -767,3 +885,5 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add(`stagger-${Math.min(index + 1, 9)}`);
     });
 });
+
+

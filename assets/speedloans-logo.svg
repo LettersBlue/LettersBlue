@@ -1,0 +1,9 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SpeedLoans logo</title>
+  <desc id="desc">Circular SL logo with a yellow accent dot.</desc>
+  <rect width="128" height="128" rx="20" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="52" stroke="#0E234C" stroke-width="5"/>
+  <path d="M32 69.5C35.5 73.5 41.3 76.5 49.2 76.5C57.3 76.5 61.8 72.6 61.8 66.9C61.8 61.8 58.4 59.1 50.9 57.8L45.9 57C41.1 56.2 38.6 54.8 38.6 51.8C38.6 48.5 41.8 46.4 47.3 46.4C52.5 46.4 56.2 47.9 59.1 50.1L64.2 43.8C60.5 40.5 55.2 38.4 47.7 38.4C39.1 38.4 33 42.9 33 49.6C33 55.4 36.9 58.4 44.1 59.7L49.4 60.6C54.1 61.4 56.8 62.7 56.8 66C56.8 69.6 53.6 71.6 48.5 71.6C42.8 71.6 38.4 69.6 35.3 66.8L32 69.5Z" fill="#0E234C"/>
+  <path d="M68 37V76H76.3V60.9H93.2V54.1H76.3V43.9H96V37H68Z" fill="#0E234C"/>
+  <circle cx="97" cy="97" r="8" fill="#F5B400" stroke="#0E234C" stroke-width="4"/>
+</svg>
