@@ -467,7 +467,7 @@ let lastProjectTrigger = null;
 const projectDetails = {
     'the-voice-lounge': {
         title: 'The Voice Lounge',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'One release unit covering the web app, admin dashboard, and mobile app on shared Supabase services.',
         overview: 'The Voice Lounge is the official listener website, staff dashboard, and mobile application suite. It is organized as one release unit with separate web, admin, and mobile apps that share Supabase authentication, PostgreSQL data, and storage while keeping each client\'s responsibilities distinct.',
         legend: [
@@ -514,7 +514,7 @@ const projectDetails = {
     },
     'citizen-tv': {
         title: 'Citizen TV',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Public-facing citizen-journalism platform for publishing, reviewing, and discovering community stories.',
         overview: 'Citizen TV is built for news and community content. The flow starts with browsing stories, weather, and alerts, then moves into saved items and categories, and finishes with upload and publishing workflows that keep community content moving.',
         flow: [
@@ -535,7 +535,7 @@ const projectDetails = {
     },
     'appimate-business': {
         title: 'Appimate Business',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Business intelligence platform for invoicing, quotations, payroll, reporting, and analytics.',
         overview: 'Appimate Business is the front-end for a business intelligence platform that handles invoicing, quotations, payroll, reporting, and analytics. The experience starts with business data capture, then moves into day-to-day operations, and ends with dashboards and reporting that help teams make decisions.',
         flow: [
@@ -556,7 +556,7 @@ const projectDetails = {
     },
     'appimate-api': {
         title: 'Appimate API Server',
-        category: 'AppimateSA - Work',
+        category: 'Client Project',
         summary: 'Backend infrastructure for Appimate Business, covering authentication, realtime, file handling, payments, and automation.',
         overview: 'The Appimate API Server powers the Appimate ecosystem. It exposes production backend services for authentication, realtime communication, file handling, payments, notifications, and automation that keep the business platform moving.',
         flow: [
@@ -574,7 +574,7 @@ const projectDetails = {
     },
     blockbuster: {
         title: 'BlockBuster',
-        category: 'Personal Project',
+        category: 'School Project',
         summary: 'Xamarin.Forms Android game with three difficulty levels, an AI opponent, and a mobile gameplay loop.',
         overview: 'BlockBuster is a Xamarin.Forms Android game built as a final-year BCom Information Systems project. The experience covers game setup, difficulty selection, AI opponent play, and a mobile gameplay loop designed for cross-platform use.',
         flow: [
@@ -592,7 +592,7 @@ const projectDetails = {
     },
     craftsphere: {
         title: 'CraftSphere',
-        category: 'Personal Project',
+        category: 'School Project',
         summary: 'Next.js application for MSMEs to map customer journeys and conduct pre-call surveys.',
         overview: 'CraftSphere is a Next.js application for MSMEs to map customer journeys and conduct pre-call surveys. It combines authentication, role-based access, and a dashboard so teams can move from intake to insight in one place.',
         flow: [
@@ -612,10 +612,10 @@ const projectDetails = {
         }
     },
     'ai-smme-app': {
-        title: 'AI SMME App',
-        category: 'Hackathon Project',
+        title: 'AI SMME Funding',
+        category: 'Client Project',
         summary: 'AI-powered funding application platform that uses voice-to-text and guided workflows to produce submission-ready applications.',
-        overview: 'The AI SMME App helps entrepreneurs turn funding ideas into structured applications. The workflow uses voice-to-text and guided prompts to match applicants with opportunities and produce submission-ready applications.',
+        overview: 'AI SMME Funding helps entrepreneurs turn funding ideas into structured applications. The workflow uses voice-to-text and guided prompts to match applicants with opportunities and produce submission-ready applications.',
         flow: [
             'Capture an idea through voice or guided input.',
             'Match the application to suitable funding opportunities.',
