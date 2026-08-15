@@ -452,6 +452,7 @@ const projectModal = document.getElementById('projectModal');
 const projectModalCategory = document.getElementById('projectModalCategory');
 const projectModalTitle = document.getElementById('projectModalTitle');
 const projectModalSummary = document.getElementById('projectModalSummary');
+const projectModalLegend = document.getElementById('projectModalLegend');
 const projectModalOverview = document.getElementById('projectModalOverview');
 const projectModalFlow = document.getElementById('projectModalFlow');
 const projectModalFeatures = document.getElementById('projectModalFeatures');
@@ -465,21 +466,47 @@ let lastProjectTrigger = null;
 
 const projectDetails = {
     'the-voice-lounge': {
-        title: 'TheVoiceLounge',
+        title: 'The Voice Lounge',
         category: 'AppimateSA - Work',
-        summary: 'Media and community platform spanning public content and admin workflows for radio, podcast, and studio operations.',
-        overview: 'The Voice Lounge brings the public-facing content experience and the back-office admin flow together. It lets people discover and engage with media content while giving the team a structured way to manage radio, podcast, and recording-studio operations from one workflow.',
+        summary: 'One release unit covering the web app, admin dashboard, and mobile app on shared Supabase services.',
+        overview: 'The Voice Lounge is the official listener website, staff dashboard, and mobile application suite. It is organized as one release unit with separate web, admin, and mobile apps that share Supabase authentication, PostgreSQL data, and storage while keeping each client\'s responsibilities distinct.',
+        legend: [
+            { label: 'Web', tone: 'voice-web' },
+            { label: 'Admin', tone: 'voice-admin' },
+            { label: 'Mobile', tone: 'voice-mobile' },
+            { label: 'Shared', tone: 'voice-shared' }
+        ],
         flow: [
-            'Users discover content through the public experience.',
-            'Editors and admins manage radio, podcast, and studio operations.',
-            'Publishing and operational updates stay connected across the platform.'
+            { tone: 'voice-web', text: 'Public listening, shows, podcasts, announcements, member profiles, subscriptions, and PayFast payments.' },
+            { tone: 'voice-admin', text: 'Hosts, producers, and administrators use a server-authoritative dashboard with capability checks.' },
+            { tone: 'voice-mobile', text: 'The Expo Router mobile app serves iOS and Android listeners with anonymous-client access.' },
+            { tone: 'voice-shared', text: 'Authenticated server endpoints are shared by the web and mobile apps.' },
+            { tone: 'voice-shared', text: 'Route handlers validate transport input before calling feature services.' },
+            { tone: 'voice-shared', text: 'Services own business rules and workflow orchestration.' },
+            { tone: 'voice-shared', text: 'Repositories own Supabase persistence, storage access, and privileged provider state.' },
+            { tone: 'voice-shared', text: 'Browser-side Supabase stays limited to the anonymous key and approved RLS operations.' }
         ],
         features: [
-            'Content management for media teams',
-            'Operational tooling for radio, podcast, and studio workflows',
-            'Responsive web and mobile surfaces'
+            { tone: 'voice-web', text: 'Public listening, member profiles, subscriptions, and announcements.' },
+            { tone: 'voice-web', text: 'PayFast payments with server-only credentials, signatures, and reconciliation.' },
+            { tone: 'voice-admin', text: 'Show, schedule, analytics, content, and platform-setting workflows.' },
+            { tone: 'voice-mobile', text: 'Expo Router listener experience for iOS and Android.' },
+            { tone: 'voice-shared', text: 'Authenticated server endpoints for the website and mobile app.' },
+            { tone: 'voice-shared', text: 'Feature services, Supabase repositories, and server-only integrations.' },
+            { tone: 'voice-shared', text: 'Shared Supabase authentication, PostgreSQL, and object storage.' }
         ],
-        tech: ['Next.js', 'Supabase', 'Expo'],
+        tech: [
+            { tone: 'voice-web', text: 'Next.js' },
+            { tone: 'voice-web', text: 'TypeScript' },
+            { tone: 'voice-admin', text: 'React Hook Form' },
+            { tone: 'voice-admin', text: 'Zod' },
+            { tone: 'voice-mobile', text: 'Expo Router' },
+            { tone: 'voice-mobile', text: 'React Native' },
+            { tone: 'voice-shared', text: 'Supabase' },
+            { tone: 'voice-shared', text: 'PayFast' },
+            { tone: 'voice-shared', text: 'Vercel' },
+            { tone: 'voice-shared', text: 'GitHub Actions' }
+        ],
         action: {
             label: 'Visit Website',
             href: 'https://www.thevoicelounge.co.za/'
@@ -608,19 +635,38 @@ const projectDetails = {
     speedloans: {
         title: 'SpeedLoans',
         category: 'Client Project',
-        summary: 'Loan application platform designed to make it easy for applicants to get started and stay informed.',
-        overview: 'SpeedLoans is a loan application platform focused on a smooth customer journey from application to follow-up, with clear communication throughout.',
+        summary: 'Community-focused lending platform for quick personal loans with borrower and admin experiences.',
+        overview: 'SpeedLoans is a community-focused lending platform for quick personal loans. Borrowers can apply online, track applications, view payment schedules, and download statements, while admins review applications, manage customers, disburse funds, and monitor portfolio health.',
         flow: [
-            'Guide applicants through a simple application journey.',
-            'Keep users updated as their application moves forward.',
-            'Support clear communication between the platform and the applicant.'
+            'Guide borrowers through a multi-step loan application with real-time payment calculations.',
+            'Track applications through pending, approved, disbursed, and repaid states.',
+            'Let borrowers view payment history, schedules, and downloadable statements.',
+            'Give admins tools to review applications, manage customers, and monitor portfolio health.'
         ],
         features: [
-            'Simple application journey',
-            'Clear applicant communication',
-            'Fast status updates'
+            'Borrower self-service portal',
+            'Admin dashboard with review queue',
+            'Payment schedules and statement downloads',
+            'Portfolio monitoring and audit trail'
         ],
-        tech: ['Next.js', 'Supabase', 'Supabase Realtime'],
+        tech: [
+            'Next.js 16.2.1',
+            'TypeScript',
+            'Node.js 22',
+            'PostgreSQL (Supabase)',
+            'Drizzle ORM',
+            'NextAuth.js v5',
+            'TanStack React Query v5',
+            'Tailwind CSS v4',
+            'Radix UI / shadcn/ui',
+            'React Hook Form + Zod',
+            'Nodemailer (Mailtrap)',
+            'Twilio',
+            'Cloudflare Turnstile',
+            'Framer Motion',
+            'Vercel',
+            'GitHub Actions'
+        ],
         action: {
             label: 'Visit Website',
             href: 'https://speedloans.co.za/'
@@ -634,10 +680,35 @@ function renderChipList(container, values) {
     }
 
     container.innerHTML = '';
+    const orderedValues = [...values].sort((a, b) => {
+        const aShared = a && typeof a === 'object' && a.tone === 'voice-shared';
+        const bShared = b && typeof b === 'object' && b.tone === 'voice-shared';
+        return Number(aShared) - Number(bShared);
+    });
+
+    orderedValues.forEach((value) => {
+        const chip = document.createElement('span');
+        if (value && typeof value === 'object') {
+            chip.className = `tech-tag project-legend-chip ${value.tone || ''}`.trim();
+            chip.textContent = value.text;
+        } else {
+            chip.className = 'tech-tag';
+            chip.textContent = value;
+        }
+        container.appendChild(chip);
+    });
+}
+
+function renderLegend(container, values) {
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = '';
     values.forEach((value) => {
         const chip = document.createElement('span');
-        chip.className = 'tech-tag';
-        chip.textContent = value;
+        chip.className = `project-legend-chip ${value.tone || ''}`.trim();
+        chip.textContent = value.label;
         container.appendChild(chip);
     });
 }
@@ -648,9 +719,31 @@ function renderBulletList(container, values) {
     }
 
     container.innerHTML = '';
-    values.forEach((value) => {
+    const orderedValues = [...values].sort((a, b) => {
+        const aShared = a && typeof a === 'object' && a.tone === 'voice-shared';
+        const bShared = b && typeof b === 'object' && b.tone === 'voice-shared';
+        return Number(aShared) - Number(bShared);
+    });
+
+    let sharedBadgeUsed = false;
+    orderedValues.forEach((value) => {
         const item = document.createElement('li');
-        item.textContent = value;
+        if (value && typeof value === 'object') {
+            item.className = `project-modal-item ${value.tone || ''}`.trim();
+            const text = document.createElement('span');
+            text.textContent = value.text;
+            if (value.tone === 'voice-shared') {
+                if (!sharedBadgeUsed) {
+                    item.classList.add('shared-leading');
+                    sharedBadgeUsed = true;
+                }
+            } else {
+                item.classList.add('non-shared');
+            }
+            item.append(text);
+        } else {
+            item.textContent = value;
+        }
         container.appendChild(item);
     });
 }
@@ -677,6 +770,10 @@ function openProjectModal(projectKey, trigger) {
 
     if (projectModalSummary) {
         projectModalSummary.textContent = project.summary;
+    }
+
+    if (projectModalLegend) {
+        renderLegend(projectModalLegend, project.legend || []);
     }
 
     if (projectModalOverview) {
@@ -788,3 +885,5 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add(`stagger-${Math.min(index + 1, 9)}`);
     });
 });
+
+
