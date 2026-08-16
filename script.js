@@ -595,19 +595,20 @@ const projectDetails = {
     craftsphere: {
         title: 'CraftSphere',
         category: 'School Project',
-        summary: 'Next.js application for MSMEs to map customer journeys and conduct pre-call surveys.',
-        overview: 'CraftSphere is a Next.js application for MSMEs to map customer journeys and conduct pre-call surveys. It combines authentication, role-based access, and a dashboard so teams can move from intake to insight in one place.',
+        summary: 'ASP.NET Web Forms marketplace for artisans with products, custom orders, auctions, subscriptions, compliance workflows, and an AI vendor assistant.',
+        overview: 'CraftSphere is a full-stack artisan marketplace built with ASP.NET Web Forms and Web API. It supports product cataloguing, custom orders, auctions, reviews, vendor subscriptions, compliance document uploads, reporting, and an AI vendor assistant that uses Cohere and Groq-backed query workflows so sellers can manage work from one portal.',
         flow: [
-            'Authenticate users and route them by role.',
-            'Capture survey and journey data.',
-            'Review analytics and manage workflows from the dashboard.'
+            'Authenticate admins, vendors, and courier users into role-specific portals.',
+            'Manage product listings, custom orders, auctions, and review workflows.',
+            'Track delivery, compliance, subscription, reporting, and assistant activity from the dashboard.'
         ],
         features: [
-            'Role-based access and protected routes',
-            'Supabase-backed authentication and storage',
-            'Customer, admin, and artisan workflows'
+            'Role-based admin, vendor, and courier experiences',
+            'Product, custom order, auction, and review management',
+            'Vendor subscriptions, compliance uploads, and reporting',
+            'AI vendor assistant backed by Web API endpoints and external LLM providers'
         ],
-        tech: ['Next.js', 'React', 'Supabase', 'Tailwind CSS', 'TypeScript'],
+        tech: ['ASP.NET Web Forms', 'C#', 'Web API', 'SQL Server', 'jQuery', 'JSON', 'Cohere', 'Groq'],
         action: {
             label: 'View Code',
             href: 'https://github.com/LettersBlue/CraftSphere'
