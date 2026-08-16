@@ -516,18 +516,19 @@ const projectDetails = {
         title: 'Citizen TV',
         category: 'Client Project',
         summary: 'Public-facing citizen-journalism platform for publishing, reviewing, and discovering community stories.',
-        overview: 'Citizen TV is built for news and community content. The flow starts with browsing stories, weather, and alerts, then moves into saved items and categories, and finishes with upload and publishing workflows that keep community content moving.',
+        overview: 'Citizen TV is a public-facing citizen-journalism platform for news, weather, alerts, and community reporting. The flow starts with browsing stories and discovery feeds, then moves into saved content and category navigation, and finishes with upload and publishing workflows that keep community content moving.',
         flow: [
             'Browse home, weather, alerts, and community stories.',
-            'Save items or drill into categories and discovery views.',
+            'Save items, filter by category, and move through discovery views.',
             'Upload and publish content into the platform.'
         ],
         features: [
             'Home, weather, alerts, and explore surfaces',
-            'Saved items and category browsing',
-            'Upload flows for community content'
+            'Saved items, categories, and discovery browsing',
+            'Upload and publishing flows for community content',
+            'Authentication, data access, and responsive UI components'
         ],
-        tech: ['Next.js', 'Supabase', 'Expo'],
+        tech: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase', 'TanStack React Query', 'Radix UI', 'React Hook Form', 'Zod', 'Framer Motion', 'Tailwind CSS v4'],
         action: {
             label: 'Visit Website',
             href: 'https://citizentv.vercel.app/'
@@ -535,9 +536,9 @@ const projectDetails = {
     },
     'appimate-business': {
         title: 'Appimate Business',
-        category: 'Client Project',
-        summary: 'Business intelligence platform for invoicing, quotations, payroll, reporting, and analytics.',
-        overview: 'Appimate Business is the front-end for a business intelligence platform that handles invoicing, quotations, payroll, reporting, and analytics. The experience starts with business data capture, then moves into day-to-day operations, and ends with dashboards and reporting that help teams make decisions.',
+        category: 'Internal Company App',
+        summary: 'Internal business platform for invoicing, quotations, payroll, reporting, and analytics.',
+        overview: 'Appimate Business is an internal company application for invoicing, quotations, payroll, reporting, and analytics. The experience starts with business data capture, then moves into day-to-day operations, and ends with dashboards and reporting that help teams make decisions.',
         flow: [
             'Capture business data and operational records.',
             'Create invoices, quotations, payroll entries, and related workflows.',
@@ -548,7 +549,7 @@ const projectDetails = {
             'Dashboard experience with quick actions and key indicators',
             'Pricing and product flows for business users'
         ],
-        tech: ['Next.js', 'TypeScript', 'Convex'],
+        tech: ['Next.js 16.2.1', 'React 19', 'TypeScript', 'TanStack Query', 'Radix UI', 'React Hook Form', 'Zod', 'Convex', 'Drizzle ORM', 'MySQL', 'OpenAI', 'PostHog', 'Vercel'],
         action: {
             label: 'Visit Website',
             href: 'https://business.appimate.com'
@@ -556,20 +557,21 @@ const projectDetails = {
     },
     'appimate-api': {
         title: 'Appimate API Server',
-        category: 'Client Project',
-        summary: 'Backend infrastructure for Appimate Business, covering authentication, realtime, file handling, payments, and automation.',
-        overview: 'The Appimate API Server powers the Appimate ecosystem. It exposes production backend services for authentication, realtime communication, file handling, payments, notifications, and automation that keep the business platform moving.',
+        category: 'Internal Company Backend',
+        summary: 'Production backend for the Appimate ecosystem, covering authentication, realtime, multi-database workflows, file handling, and automation.',
+        overview: 'The Appimate API Server is the 5th generation core API for the Appimate ecosystem. It is built with Node.js, TypeScript, and Express, and provides REST APIs, Socket.io realtime handlers, multi-database data access, file and media processing, payments, notifications, and automation.',
         flow: [
-            'Client apps call REST endpoints and realtime sockets.',
-            'Authentication and role-based access keep data secure.',
-            'Background jobs handle files, video, cron work, and notifications.'
+            'Client apps call REST endpoints and Socket.io channels.',
+            'Authentication, authorization, and multi-database services protect and organize data.',
+            'Background jobs handle files, media, payments, notifications, and cron work.'
         ],
         features: [
-            'REST endpoints with JWT authentication',
-            'Role-based access control and Socket.io realtime',
-            'MySQL, Redis, Drizzle, Swagger/OpenAPI, Sentry, and AI integrations'
+            'REST APIs with JWT authentication and role-based access control',
+            'Socket.io realtime with Redis adapter support',
+            'MySQL, Redis, Drizzle ORM, and Swagger/OpenAPI documentation',
+            'File storage, video processing, push notifications, and AI integrations'
         ],
-        tech: ['Node.js', 'TypeScript', 'Express', 'Socket.io', 'MySQL', 'Redis'],
+        tech: ['Node.js 24+', 'TypeScript 5.2+', 'Express 4.19', 'Socket.io 4.7', 'MySQL 8', 'Redis 4.7', 'Drizzle ORM', 'Swagger/OpenAPI', 'Sentry', 'Azure Blob Storage', 'AWS S3', 'FFmpeg', 'OpenAI', 'Google Gemini', 'Twilio', 'Firebase'],
         note: 'Private repository. The code is not linked publicly, but the work is represented here.'
     },
     blockbuster: {
@@ -626,7 +628,7 @@ const projectDetails = {
             'Funding opportunity matching',
             'Guided application generation'
         ],
-        tech: ['Python', 'TensorFlow', 'FastAPI'],
+        tech: ['Next.js 16.2.1', 'React 19.2.4', 'TypeScript', 'Supabase', 'TanStack Query', 'Radix UI', 'Framer Motion', 'Zod', 'Drizzle ORM', 'PostgreSQL', 'NextAuth.js v5', 'OpenAI', 'Twilio'],
         action: {
             label: 'Visit Website',
             href: 'https://ai-smme-funding.fsell.app'
@@ -785,11 +787,13 @@ function openProjectModal(projectKey, trigger) {
     renderChipList(projectModalTech, project.tech || []);
 
     if (projectModalActions) {
-        projectModalActions.hidden = !project.action;
+        const hideActionArea = !project.action || projectKey === 'appimate-api';
+        projectModalActions.hidden = hideActionArea;
+        projectModalActions.style.display = hideActionArea ? 'none' : '';
     }
 
     if (projectModalAction) {
-        if (project.action) {
+        if (project.action && projectKey !== 'appimate-api') {
             projectModalAction.hidden = false;
             projectModalAction.textContent = project.action.label;
             projectModalAction.href = project.action.href;
