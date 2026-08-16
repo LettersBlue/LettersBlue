@@ -558,19 +558,20 @@ const projectDetails = {
     'appimate-api': {
         title: 'Appimate API Server',
         category: 'Internal Company Backend',
-        summary: 'Internal backend infrastructure for Appimate Business, covering authentication, realtime, file handling, payments, and automation.',
-        overview: 'The Appimate API Server powers the Appimate ecosystem. It exposes internal backend services for authentication, realtime communication, file handling, payments, notifications, and automation that keep the business platform moving.',
+        summary: 'Production backend for the Appimate ecosystem, covering authentication, realtime, multi-database workflows, file handling, and automation.',
+        overview: 'The Appimate API Server is the 5th generation core API for the Appimate ecosystem. It is built with Node.js, TypeScript, and Express, and provides REST APIs, Socket.io realtime handlers, multi-database data access, file and media processing, payments, notifications, and automation.',
         flow: [
-            'Client apps call REST endpoints and realtime sockets.',
-            'Authentication and role-based access keep data secure.',
-            'Background jobs handle files, video, cron work, and notifications.'
+            'Client apps call REST endpoints and Socket.io channels.',
+            'Authentication, authorization, and multi-database services protect and organize data.',
+            'Background jobs handle files, media, payments, notifications, and cron work.'
         ],
         features: [
-            'REST endpoints with JWT authentication',
-            'Role-based access control and Socket.io realtime',
-            'MySQL, Redis, Drizzle, Swagger/OpenAPI, Sentry, and AI integrations'
+            'REST APIs with JWT authentication and role-based access control',
+            'Socket.io realtime with Redis adapter support',
+            'MySQL, Redis, Drizzle ORM, and Swagger/OpenAPI documentation',
+            'File storage, video processing, push notifications, and AI integrations'
         ],
-        tech: ['Node.js', 'TypeScript', 'Express', 'Socket.io', 'MySQL', 'Redis'],
+        tech: ['Node.js 24+', 'TypeScript 5.2+', 'Express 4.19', 'Socket.io 4.7', 'MySQL 8', 'Redis 4.7', 'Drizzle ORM', 'Swagger/OpenAPI', 'Sentry', 'Azure Blob Storage', 'AWS S3', 'FFmpeg', 'OpenAI', 'Google Gemini', 'Twilio', 'Firebase'],
         note: 'Private repository. The code is not linked publicly, but the work is represented here.'
     },
     blockbuster: {
@@ -786,11 +787,13 @@ function openProjectModal(projectKey, trigger) {
     renderChipList(projectModalTech, project.tech || []);
 
     if (projectModalActions) {
-        projectModalActions.hidden = !project.action;
+        const hideActionArea = !project.action || projectKey === 'appimate-api';
+        projectModalActions.hidden = hideActionArea;
+        projectModalActions.style.display = hideActionArea ? 'none' : '';
     }
 
     if (projectModalAction) {
-        if (project.action) {
+        if (project.action && projectKey !== 'appimate-api') {
             projectModalAction.hidden = false;
             projectModalAction.textContent = project.action.label;
             projectModalAction.href = project.action.href;
